@@ -8,6 +8,7 @@ public class SlenditMailApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SlenditMailApplication.class, args);
+		System.out.println("Applicaation started");
 	}
 
 }
