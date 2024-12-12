@@ -23,8 +23,7 @@ public class EmailServiceImpl implements EmailService {
 	@Autowired
 	private MailSenderUtil mailSenderUtil;
 
-	@Autowired
-	private RestTemplate restTemplate;
+	private RestTemplate restTemplate = new RestTemplate();
 
 	@Override
 	public String sendWelcomeEmail(@Valid WelcomeMailRequest request) {
