@@ -74,10 +74,10 @@ public class EmailServiceImpl implements EmailService {
 
 		String response = null;
 		String subject = "Confirm Email";
-		String templatePath = "/templates/ConfirmEmail.html";
+		String templatePath = "/templates/ConfirmMail.html";
 
 		Map<String, String> placeholders = new TreeMap<String, String>();
-		placeholders.put("{{link}}", "http://localhost:8083/email/verify-email" + token.getToken());
+		placeholders.put("{{link}}", "http://localhost:8083/email/verify-email/" + token.getToken());
 
 		try {
 			mailSenderUtil.sendMail(token.getEmail(), subject, templatePath, placeholders);
