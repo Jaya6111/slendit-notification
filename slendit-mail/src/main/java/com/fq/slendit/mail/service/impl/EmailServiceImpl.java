@@ -30,7 +30,7 @@ public class EmailServiceImpl implements EmailService {
 
 		String response = null;
 		String subject = MailConstants.WELCOMESUBJECT;
-		String templatePath = "/templates/WelcomeMail.html";
+		String templatePath = MailConstants.WELCOME_EMAIL_TEMPLATE;
 
 		Map<String, String> placeholders = new TreeMap<String, String>();
 		placeholders.put("{{username}}", request.getRecipientName());
@@ -58,7 +58,7 @@ public class EmailServiceImpl implements EmailService {
 				return "Token expired.";
 			}
 
-			restTemplate.delete("http://localhost:8081/user/delete-token/" + token);
+			restTemplate.delete(MailConstants.DELETE_TOKEN_URL + token);
 
 			return "Email successfully verified";
 			
@@ -74,10 +74,10 @@ public class EmailServiceImpl implements EmailService {
 
 		String response = null;
 		String subject = "Confirm Email";
-		String templatePath = "/templates/ConfirmMail.html";
+		String templatePath = MailConstants.CONFIRM_EMAIL_TEMPLATE;
 
 		Map<String, String> placeholders = new TreeMap<String, String>();
-		placeholders.put("{{link}}", "http://localhost:8083/email/verify-email/" + token.getToken());
+		placeholders.put("{{link}}", MailConstants.EMAIL_VERIFY_URL + token.getToken());
 
 		try {
 			mailSenderUtil.sendMail(token.getEmail(), subject, templatePath, placeholders);
@@ -89,8 +89,7 @@ public class EmailServiceImpl implements EmailService {
 	}
 	
 	private VerificationToken getTokenFromUser(String token) {
-		return restTemplate.getForObject("http://localhost:8081/user/get-token/" + token,
-				VerificationToken.class);
+		return restTemplate.getForObject(MailConstants.GET_TOKEN_URL + token, VerificationToken.class);
 	}
 
 }

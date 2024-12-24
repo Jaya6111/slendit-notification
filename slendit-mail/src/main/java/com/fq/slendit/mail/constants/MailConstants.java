@@ -30,6 +30,19 @@ public class MailConstants {
 	@Value("${email.subject.welcome}")
 	private String welcomeSubject;
 	
+	@Value("${email.welcome.email.template}")
+	private String welcomeTemplate;
+	@Value("${email.confirm.email.template}")
+	private String confirmTemplate;
+	@Value("${email.token.delete.url}")
+	private String deleteTokenUrl;
+	@Value("${email.token.get.url}")
+	private String getTokenUrl;
+	@Value("${email.token.verify.url}")
+	private String verifyTokenUrl;
+	@Value("${email.verify.url}")
+	private String emailVerifyUrl;
+	
 	public static String SENDER_EMAIL;
 	public static String CONFORMATION_FAILED_STATUS;
 	public static String EMAIL_CONFORMED;
@@ -38,6 +51,14 @@ public class MailConstants {
 	public static String SUCCESS;
 	
 	public static String WELCOMESUBJECT;
+	
+	public static String WELCOME_EMAIL_TEMPLATE;
+	public static String CONFIRM_EMAIL_TEMPLATE;
+	
+	public static String EMAIL_VERIFY_URL;
+	public static String DELETE_TOKEN_URL;
+	public static String GET_TOKEN_URL;
+	public static String VERIFY_TOKEN_URL;
 
 	@PostConstruct
 	public void init() {
@@ -50,5 +71,12 @@ public class MailConstants {
 		SUCCESS = success;
 		
 		WELCOMESUBJECT = welcomeSubject;
+		
+		WELCOME_EMAIL_TEMPLATE = welcomeTemplate;
+		CONFIRM_EMAIL_TEMPLATE = confirmTemplate;
+		DELETE_TOKEN_URL = deleteTokenUrl;
+		GET_TOKEN_URL = getTokenUrl;
+		VERIFY_TOKEN_URL = verifyTokenUrl;
+		EMAIL_VERIFY_URL = emailVerifyUrl;
 	}
 }

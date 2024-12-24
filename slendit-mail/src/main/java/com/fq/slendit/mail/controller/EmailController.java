@@ -16,12 +16,12 @@ import com.fq.slendit.mail.service.EmailService;
 import com.fq.slendit.mail.util.VerificationToken;
 
 @RestController
-@RequestMapping("/email")
+@RequestMapping("/slendit/email")
 public class EmailController {
 
 	@Autowired
 	private EmailService emailService;
-
+	
 	@PostMapping("/welcome")
 	public String welcomeMail(@RequestBody @Valid WelcomeMailRequest request) {
 		return emailService.sendWelcomeEmail(request);
