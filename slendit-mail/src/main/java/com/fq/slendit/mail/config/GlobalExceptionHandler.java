@@ -21,6 +21,8 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import com.fq.slendit.mail.response.ExceptionResponse;
+
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

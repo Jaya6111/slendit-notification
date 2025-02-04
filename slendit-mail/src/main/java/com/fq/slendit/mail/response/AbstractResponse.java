@@ -1,9 +1,12 @@
-package com.fq.slendit.mail.config;
+package com.fq.slendit.mail.response;
 
 import java.util.Set;
 
 import org.springframework.http.HttpStatus;
 
+import lombok.Getter;
+
+@Getter
 public class AbstractResponse {
 	public HttpStatus status;
 	public String statusCode;

@@ -3,7 +3,6 @@ package com.fq.slendit.mail.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,14 +27,12 @@ public class EmailController {
 	}
 	
 	@PostMapping("/confirm-email")
-	public ResponseEntity<String> confirmEmail(@RequestBody VerificationToken token) {
-		String response = emailService.confirmEmail(token);
-		return ResponseEntity.ok(response);
+	public String confirmEmail(@RequestBody VerificationToken token) {
+		return emailService.confirmEmail(token);
 	}
 
 	@GetMapping("/verify-email/{token}")
-	public ResponseEntity<String> verifyEmail(@PathVariable String token) {
-		String response = emailService.verifyToken(token);
-		return ResponseEntity.ok(response);
+	public String verifyEmail(@PathVariable String token) {
+		return emailService.verifyToken(token);
 	}
 }

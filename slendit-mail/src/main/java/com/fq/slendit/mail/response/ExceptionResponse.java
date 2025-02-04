@@ -1,4 +1,4 @@
-package com.fq.slendit.mail.config;
+package com.fq.slendit.mail.response;
 
 import java.util.Set;
 
